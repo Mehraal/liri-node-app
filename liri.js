@@ -21,11 +21,9 @@ var Twitter = function () {
         fs.appendFile("log.txt", tweetData + divider, function (err) {
              if (err) throw err;
                 console.log(tweetData);
+
+            module.exports = Twitter;
            
-    
-
-
-    module.exports = "Twitter";
 
             });
 
@@ -37,7 +35,7 @@ var Twitter = function () {
         this.findSong = function (song) {
 
             // The following URL can be used to search the TV Maze API for a given show
-     var URL = "https://developer.spotify.com/dashboard/applications/a22d30e953ca4227a64d27bcbfe91d01" + tweet;
+     var URL = "https://developer.spotify.com/dashboard/applications/a22d30e953ca4227a64d27bcbfe91d01" + song;
 
         request(URL, function (err, response, body) {
              var jsonData = JSON.parse(body);
@@ -53,15 +51,22 @@ var Twitter = function () {
              if (err) throw err;
                 console.log(songData);
 
-
-    module.exports = "Spotify";
+            module.exports = Spotify;
         });
 
     });
 
 };
 
-        var Movie = function () {
+        var Movie = function (Title,Year,Rating,Country,Language,Plot,Actors) {
+
+            // this.title = Title;
+            // this.year= Year;
+            // this.rating = Rating;
+            // this.country = Country;
+            // this.language = Language;
+            // this.plot = Plot;
+            // this.actors = Actors;
             var divider = "\n------------------------------";
             this.findMovie = function (movie) {
 
@@ -73,7 +78,7 @@ var Twitter = function () {
 
                     var movieData = [
                         "Title:" + jsonData.title,
-                        "year:" + jsonData.year,
+                        "Year:" + jsonData.year,
                         "Rating:" + jsonData.imdbRating,
                         "Country:" + jsonData.country,
                         "Language:" + jsonData.language,
@@ -86,7 +91,7 @@ var Twitter = function () {
                         if (err) throw err;
                         console.log(movieData);
 
-     module.exports = "Movie";
+                module.exports = Movie,
 
              });
         });
